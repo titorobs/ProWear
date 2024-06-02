@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Digital Gate Pass Request</title>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            padding: 20px;
+            margin: 0;
+            background: url("https://scontent.fmnl8-1.fna.fbcdn.net/v/t39.30808-6/435349140_810819934411840_4756441670766134660_n.png?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=bBLpSPC_dwcQ7kNvgEHMe8n&_nc_ht=scontent.fmnl8-1.fna&oh=00_AYChPRMj_42Hq2e_pTgTZeh_AfBgVUdlfdveFGXlD2S8BA&oe=665BF35E");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            cursor: pointer;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .success-message {
+            text-align: center;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Digital Gate Pass Request</h1>
+        <form id="gatePassForm" action="#" method="post">
+            <label for="schoolId">School ID Number:</label>
+            <input type="text" id="schoolId" name="schoolId" required>
+
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="middleInitial">Middle Initial:</label>
+            <input type="text" id="middleInitial" name="middleInitial" maxlength="1">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="schoolEmail">Microsoft School Email:</label>
+            <input type="email" id="schoolEmail" name="schoolEmail" required>
+
+            <label for="reason">Reason for Request:</label>
+            <textarea id="reason" name="reason" rows="4" required></textarea>
+
+            <label for="image">Attach Image (if applicable):</label>
+            <input type="file" id="image" name="image">
+
+            <input type="submit" value="Submit">
+        </form>
+        <div class="success-message" id="successMessage" style="display:none;">
+            Request in Process, we will send the gatepass in your school email if approved
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('gatePassForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Display success message
+            document.getElementById('successMessage').style.display = 'block';
+            // You can add code here to submit the form data to your server using AJAX
+            // Example: You can use fetch or XMLHttpRequest to send form data to your backend
+            // Once the request is processed, you can display the success message or handle any errors accordingly
+        });
+    </script>
+</body>
+</html>
